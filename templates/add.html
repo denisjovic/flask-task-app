@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Add new tasks:</h2>
+<!-- We are sending this data, so we use post method! -->
+<form action="/add" method="post">
+	<input id="task" name="task" type="text" placeholder="Add task...">
+	<input id="submit" type="submit" disabled>
+</form>
+<script>
+	document.querySelector('#task').onkeyup = function() {
+		if(document.querySelector('#task').value === '') {
+			document.querySelector('#submit').disabled = true;
+		} else {
+			document.querySelector('#submit').disabled = false;
+		}
+	}
+</script>
+{% endblock %}
+
